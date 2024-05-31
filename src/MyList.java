@@ -1,4 +1,3 @@
-
 public interface MyList<T> {
     int size();
 
@@ -11,6 +10,8 @@ public interface MyList<T> {
     void addFirst(T e);
 
     void addLast(T e);
+
+    T set(int index, T element);
 
     T get(int index);
 
