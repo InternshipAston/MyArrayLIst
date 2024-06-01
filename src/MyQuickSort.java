@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class MyQuickSort {
     public static void sort(MyList arr, int low, int high) {
         if (low < high) {
@@ -5,15 +7,15 @@ public class MyQuickSort {
 
             sort(arr, low, pi - 1);
             sort(arr, pi + 1, high);
+            List<Integer> list;
         }
     }
 
     private static <T> int partition(MyList<T> arr, int low, int high) {
-        // Выбор среднего элемента в качестве опорного
+
         int middle = low + (high - low) / 2;
         T pivot = arr.get(middle);
 
-        // Обмен опорного элемента с последним, чтобы использовать существующую логику
         T temp = arr.get(middle);
         arr.set(middle, arr.get(high));
         arr.set(high, temp);

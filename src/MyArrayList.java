@@ -1,5 +1,19 @@
 import java.util.NoSuchElementException;
 
+/**
+ * This class represents the implementation of the MiList interface.
+ * In it, a collection of elements is presented as a dynamic array.
+ * The user is presented with method get() for accessing elements by index,
+ * methods getFirst(), getLast() for getting the first or last element,
+ * methods add(), addFirst(), addLast() for inserting elements
+ * at the beginning, middle, or end of an array,
+ * method indexOf() for getting element index by its value,
+ * set() method to change an element at a special position
+ *
+ * @param <T>
+ * @author Egor Fursevich
+ * @version 1.0
+ */
 @SuppressWarnings("unchecked")
 public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
 
@@ -18,6 +32,7 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
 
     /**
      * @param capacity starting value of this array list capacity
+     * @exception IllegalArgumentException if the capacity is below zero
      */
     public MyArrayList(int capacity) {
         if (capacity >= 0) {
@@ -73,6 +88,7 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
     /**
      * @param element element to add
      * @param index   index in this arrayList where add the element
+     * @exception IllegalArgumentException if the index is out of bounds of this array list
      */
     @Override
     public void add(int index, T element) {
@@ -108,6 +124,7 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
     /**
      * @param index   the index of the element which must be setted
      * @param element the new element on index position
+     * @exception IllegalArgumentException if the index is out of bounds of this array list
      * @return new element
      */
     @Override
@@ -124,6 +141,7 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
     /**
      * @param index index of the element to get
      * @return element on specified index
+     * @exception IllegalArgumentException if the index is out of bounds of this array list
      */
     @Override
     public T get(int index) {
@@ -134,6 +152,7 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
     }
 
     /**
+     * @exception NoSuchElementException if this array list is empty
      * @return the first element from this collection
      */
     @Override
@@ -145,6 +164,7 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
     }
 
     /**
+     * @exception NoSuchElementException if this array list is empty
      * @return the last element from this collection
      */
     @Override
@@ -180,9 +200,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         return -1;
     }
 
-    /**
-     * Increases the capacity of this array list
-     */
     private void increaseCapacity() {
         currentCapacity = (currentCapacity * 3) / 2 + 1;
         var newData = new Object[currentCapacity];
@@ -190,13 +207,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         array = newData;
     }
 
-    /**
-     * places a new element in the array at a specified position and shifts
-     * all elements to the right of that position one position to the right
-     *
-     * @param element element to put into this array list
-     * @param index   position to put new element
-     */
     private void addInTheMiddle(T element, int index) {
         T last = (T) array[size - 1];
         var toMove = array[index];
