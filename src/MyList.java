@@ -2,6 +2,7 @@ import java.util.NoSuchElementException;
 
 /**
  * This interface describes how to manage and modify a collection of elements
+ *
  * @param <T> type of element in this array list
  */
 public interface MyList<T> {
@@ -18,26 +19,30 @@ public interface MyList<T> {
 
     /**
      * add the element at the end of the collection
+     *
      * @param element element to add
      */
     void add(T element);
 
     /**
      * add the element at the specified position of the collection
+     *
      * @param element element to add
      * @param index   index in this arrayList where add the element
-     * @exception IllegalArgumentException if the index is out of bounds of this array list
+     * @throws IllegalArgumentException if the index is out of bounds of this array list
      */
     void add(int index, T element);
 
     /**
      * add the element at the start of the collection
+     *
      * @param element to add
      */
     void addFirst(T element);
 
     /**
      * add the element at the end of the collection
+     *
      * @param element to add
      */
     void addLast(T element);
@@ -45,27 +50,27 @@ public interface MyList<T> {
     /**
      * @param index   the index of the element which must be setted
      * @param element the new element on index position
-     * @exception IllegalArgumentException if the index is out of bounds of this array list
      * @return new element
+     * @throws IllegalArgumentException if the index is out of bounds of this array list
      */
     T set(int index, T element);
 
     /**
      * @param index index of the element to get
      * @return element on specified index
-     * @exception IllegalArgumentException if the index is out of bounds of this array list
+     * @throws IllegalArgumentException if the index is out of bounds of this array list
      */
     T get(int index);
 
     /**
-     * @exception NoSuchElementException if this array list is empty
      * @return the first element from this collection
+     * @throws NoSuchElementException if this array list is empty
      */
     T getFirst();
 
     /**
-     * @exception NoSuchElementException if this array list is empty
      * @return the last element from this collection
+     * @throws NoSuchElementException if this array list is empty
      */
     T getLast();
 

@@ -1,6 +1,14 @@
 import java.util.List;
 
+/**
+ * Class MyQuickSort allows to sort collections that implement the MyList interface
+ */
 public class MyQuickSort {
+    /**
+     * @param arr  collection to sort
+     * @param low  left border of sorting area
+     * @param high right border of sorting area
+     */
     public static void sort(MyList arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
